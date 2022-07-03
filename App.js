@@ -1,12 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
+
+import useApp from './useApp';
+
+const PermissionStatus = ({ READ_SMS_PERMISSION_STATUS, RECEIVE_SMS_PERMISSION_STATUS }) => {
+  console.log('READ_SMS_PERMISSION_STATUS, RECEIVE_SMS_PERMISSION_STATUS:', READ_SMS_PERMISSION_STATUS, RECEIVE_SMS_PERMISSION_STATUS)
+  return <>
+    <Text>READ_SMS:{READ_SMS_PERMISSION_STATUS + '' || 'null'}</Text>
+    <Text>RECEIVE_SMS:{RECEIVE_SMS_PERMISSION_STATUS + '' || 'null'}</Text>
+  </>;
+};
 
 export default function App() {
+  const {
+    appState,
+    buttonClickHandler,
+    errorCallbackStatus,
+    hasReceiveSMSPermission,
+    hasReadSMSPermission,
+    smsPermissionState,
+    successCallbackStatus,
+    smsValue,
+    smsError
+  } = useApp();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <Text>ExpoReadSMS - Test Application (Expo)</Text>
+        <Text>App State:{appState}</Text>
+        <PermissionStatus
+          READ_SMS_PERMISSION_STATUS={hasReadSMSPermission}
+          RECEIVE_SMS_PERMISSION_STATUS={hasReceiveSMSPermission} />
+        <Text>smsPermissionState:{smsPermissionState + '' || 'null'}</Text>
+        <Text>smsValue:{smsValue + '' || 'null'}</Text>
+        <Text>smsError:{smsError + '' || 'null'}</Text>
+        <Button onPress={buttonClickHandler} title="start" />
+      </View>
+    </PaperProvider>
   );
 }
 
