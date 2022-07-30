@@ -27,8 +27,6 @@
       },
       "package": "com.maniactech.exporeadsmstest",
       "permissions": [
-        "android.permission.READ_SMS",
-        "android.permission.RECEIVE_SMS"
       ]
     },
     "web": {
