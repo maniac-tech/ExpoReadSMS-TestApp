@@ -10,8 +10,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@maniac-tech/react-native-expo-read-sms": "^1.0.2",
-    "eas-cli": "^0.54.1",
+    "@maniac-tech/react-native-expo-read-sms": "^1.0.11",
+    "eas-cli": "^0.55.1",
     "expo": "~45.0.0",
     "expo-cli": "^5.4.12",
     "expo-dev-client": "~1.0.0",
