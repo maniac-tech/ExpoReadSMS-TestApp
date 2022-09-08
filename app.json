@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/645044d2-03a2-47c7-be5f-d5ff0f228cb7"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -26,13 +27,13 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.maniactech.exporeadsmstest",
-      "permissions": [
-        "android.permission.READ_SMS",
-        "android.permission.RECEIVE_SMS"
-      ]
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { PermissionsAndroid } from "react-native";
 
-import { startReadSMS } from '@maniac-tech/react-native-expo-read-sms';
+import {
+  requestReadSMSPermission,
+  startReadSMS,
+} from "@maniac-tech/react-native-expo-read-sms";
 
 const useApp = () => {
   const [appState, setAppState] = useState(null);
@@ -13,49 +16,53 @@ const useApp = () => {
   const [smsValue, setSmsValue] = useState(null);
   const [smsError, setSMSError] = useState(null);
 
-  const buttonClickHandler = () => { 
+  const buttonClickHandler = () => {
     startReadSMS(callbackFn1, callbackFn2);
   };
-  const callbackFn1 = (status, sms, error) => {
-    setSmsPermissionState('Success Callback!');
 
-    if (status === 'Start Read SMS successfully') {
-      setSuccessCallbackStatus('Start Read SMS successfully');
+  const callbackFn1 = (status, sms, error) => {
+    setSmsPermissionState("Success Callback!");
+
+    if (status === "Start Read SMS successfully") {
+      setSuccessCallbackStatus("Start Read SMS successfully");
       setSmsValue(sms);
     } else if (status === "success") {
-      setSuccessCallbackStatus('just success');
+      setSuccessCallbackStatus("just success");
       setSmsValue(sms);
     } else {
-      setSuccessCallbackStatus('Error in success callback');
+      setSuccessCallbackStatus("Error in success callback");
       setSMSError(error);
     }
   };
 
   const callbackFn2 = (status, sms, error) => {
-    setSmsPermissionState('Error Callback!');
-    setErrorCallbackStatus('Start Read SMS failed');
+    setSmsPermissionState("Error Callback!");
+    setErrorCallbackStatus("Start Read SMS failed");
   };
 
   const checkPermissions = async () => {
-    const customHasReceiveSMSPermission = await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.RECEIVE_SMS);
-    const customHasReadSMSPermission = await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.READ_SMS);
+    const customHasReceiveSMSPermission = await PermissionsAndroid.check(
+      PermissionsAndroid.PERMISSIONS.RECEIVE_SMS
+    );
+    const customHasReadSMSPermission = await PermissionsAndroid.check(
+      PermissionsAndroid.PERMISSIONS.READ_SMS
+    );
 
     setHasReceiveSMSPermission(customHasReceiveSMSPermission);
     setHasReadSMSPermission(customHasReadSMSPermission);
-    setAppState('Permission check complete');
+    setAppState("Permission check complete");
   };
 
   useEffect(() => {
-    setAppState('init');
+    console.log("requestReadSMSPermission:", requestReadSMSPermission);
+    setAppState("init");
     checkPermissions();
   }, []);
 
   useEffect(() => {
-    if (hasReceiveSMSPermission &&
-      hasReadSMSPermission) {
+    if (hasReceiveSMSPermission && hasReadSMSPermission) {
     }
-  }, [hasReceiveSMSPermission,
-    hasReadSMSPermission,]);
+  }, [hasReceiveSMSPermission, hasReadSMSPermission]);
 
   return {
     appState,
@@ -63,11 +70,12 @@ const useApp = () => {
     errorCallbackStatus,
     hasReceiveSMSPermission,
     hasReadSMSPermission,
+    requestReadSMSPermission,
     smsPermissionState,
     successCallbackStatus,
     smsValue,
-    smsError
-  }
+    smsError,
+  };
 };
 
 export default useApp;
