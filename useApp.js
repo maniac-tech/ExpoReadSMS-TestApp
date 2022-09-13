@@ -67,6 +67,7 @@ const useApp = () => {
   return {
     appState,
     buttonClickHandler,
+    checkPermissions,
     errorCallbackStatus,
     hasReceiveSMSPermission,
     hasReadSMSPermission,

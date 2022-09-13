@@ -40,11 +40,7 @@ const PermissionStatus = ({
       </DataTable.Row>
 
       {(!READ_SMS_PERMISSION_STATUS || !RECEIVE_SMS_PERMISSION_STATUS) && (
-        <Button
-          onPress={requestReadSMSPermission}
-          mode="contained"
-          title="Request Permission"
-        >
+        <Button onPress={requestReadSMSPermission} mode="contained">
           Request Permission
         </Button>
       )}
@@ -56,6 +52,7 @@ export default function App() {
   const {
     appState,
     buttonClickHandler,
+    checkPermissions,
     errorCallbackStatus,
     hasReceiveSMSPermission,
     hasReadSMSPermission,
@@ -104,6 +101,9 @@ export default function App() {
             <DataTable.Cell>{smsError + "" || "null"}</DataTable.Cell>
           </DataTable.Row>
 
+          <Button onPress={checkPermissions} title="start" mode="contained">
+            Recheck permission state
+          </Button>
           <Button onPress={buttonClickHandler} title="start" mode="contained">
             Start
           </Button>
