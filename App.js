@@ -1,6 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { Provider as PaperProvider } from "react-native-paper";
+import { StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  DataTable,
+  Title,
+  Provider as PaperProvider,
+  Divider,
+} from "react-native-paper";
 
 import useApp from "./useApp";
 
@@ -15,13 +21,34 @@ const PermissionStatus = ({
     RECEIVE_SMS_PERMISSION_STATUS
   );
   return (
-    <>
-      <Text>READ_SMS:{READ_SMS_PERMISSION_STATUS + "" || "null"}</Text>
-      <Text>RECEIVE_SMS:{RECEIVE_SMS_PERMISSION_STATUS + "" || "null"}</Text>
+    <DataTable>
+      <DataTable.Header>
+        <DataTable.Title>Permission Status</DataTable.Title>
+      </DataTable.Header>
+
+      <DataTable.Row>
+        <DataTable.Cell>READ_SMS:</DataTable.Cell>
+        <DataTable.Cell>
+          {READ_SMS_PERMISSION_STATUS + "" || "null"}
+        </DataTable.Cell>
+      </DataTable.Row>
+      <DataTable.Row>
+        <DataTable.Cell>RECEIVE_SMS:</DataTable.Cell>
+        <DataTable.Cell>
+          {RECEIVE_SMS_PERMISSION_STATUS + "" || "null"}
+        </DataTable.Cell>
+      </DataTable.Row>
+
       {(!READ_SMS_PERMISSION_STATUS || !RECEIVE_SMS_PERMISSION_STATUS) && (
-        <Button onPress={requestReadSMSPermission} title="Request Permission" />
+        <Button
+          onPress={requestReadSMSPermission}
+          mode="contained"
+          title="Request Permission"
+        >
+          Request Permission
+        </Button>
       )}
-    </>
+    </DataTable>
   );
 };
 
@@ -43,17 +70,44 @@ export default function App() {
     <PaperProvider>
       <View style={styles.container}>
         <StatusBar style="auto" />
-        <Text>ExpoReadSMS - Test Application (Expo)</Text>
-        <Text>App State:{appState}</Text>
+        <Title>ExpoReadSMS - Test Application (Expo)</Title>
+
+        <DataTable>
+          <DataTable.Row>
+            <DataTable.Cell>App State:</DataTable.Cell>
+            <DataTable.Cell>{appState}</DataTable.Cell>
+          </DataTable.Row>
+        </DataTable>
+        <Divider />
         <PermissionStatus
           READ_SMS_PERMISSION_STATUS={hasReadSMSPermission}
           RECEIVE_SMS_PERMISSION_STATUS={hasReceiveSMSPermission}
           requestReadSMSPermission={requestReadSMSPermission}
         />
-        <Text>smsPermissionState:{smsPermissionState + "" || "null"}</Text>
-        <Text>smsValue:{smsValue + "" || "null"}</Text>
-        <Text>smsError:{smsError + "" || "null"}</Text>
-        <Button onPress={buttonClickHandler} title="start" />
+        <DataTable>
+          <DataTable.Row>
+            <DataTable.Cell>
+              <Text>smsPermissionState:</Text>
+            </DataTable.Cell>
+            <DataTable.Cell>{smsPermissionState + "" || "null"}</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>
+              <Text>smsValue:</Text>
+            </DataTable.Cell>
+            <DataTable.Cell>{smsValue + "" || "null"}</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>
+              <Text>smsError:</Text>
+            </DataTable.Cell>
+            <DataTable.Cell>{smsError + "" || "null"}</DataTable.Cell>
+          </DataTable.Row>
+
+          <Button onPress={buttonClickHandler} title="start" mode="contained">
+            Start
+          </Button>
+        </DataTable>
       </View>
     </PaperProvider>
   );
