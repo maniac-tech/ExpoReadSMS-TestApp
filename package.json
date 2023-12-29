@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@maniac-tech/react-native-expo-read-sms": "1.1.0",
-    "eas-cli": "^0.55.1",
+    "eas-cli": "^2.2.0",
     "expo": "~45.0.0",
     "expo-cli": "^5.4.12",
     "expo-dev-client": "~1.0.0",
