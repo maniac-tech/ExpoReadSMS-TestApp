@@ -13,7 +13,9 @@ const useApp = () => {
   const [smsPermissionState, setSmsPermissionState] = useState(null);
   const [successCallbackStatus, setSuccessCallbackStatus] = useState(null);
   const [errorCallbackStatus, setErrorCallbackStatus] = useState(null);
-  const [smsValue, setSmsValue] = useState(null);
+  const [smsMessageData, setSmsMessageData] = useState(null);
+  const [smsMessageNumber, setSmsMessageNumber] = useState(null);
+  const [smsMessageBody, setSmsMessageBody] = useState(null);
   const [smsError, setSMSError] = useState(null);
 
   const buttonClickHandler = () => {
@@ -25,10 +27,10 @@ const useApp = () => {
 
     if (status === "Start Read SMS successfully") {
       setSuccessCallbackStatus("Start Read SMS successfully");
-      setSmsValue(sms);
+      setSmsMessageData(sms);
     } else if (status === "success") {
       setSuccessCallbackStatus("just success");
-      setSmsValue(sms);
+      setSmsMessageData(sms);
     } else {
       setSuccessCallbackStatus("Error in success callback");
       setSMSError(error);
@@ -54,6 +56,21 @@ const useApp = () => {
   };
 
   useEffect(() => {
+    const tempArray = smsMessageData?.substring("1", smsMessageData.length - 1).split(",");
+
+    if (smsMessageData) {
+      const messageOriginatingAdd = tempArray[0];
+      const messageBody = tempArray[1];
+
+      setSmsMessageBody(messageBody);
+      setSmsMessageNumber(messageOriginatingAdd);
+    } else {
+      setSmsMessageBody(null);
+      setSmsMessageNumber(null);
+    }
+  }, [smsMessageData]);
+
+  useEffect(() => {
     console.log("requestReadSMSPermission:", requestReadSMSPermission);
     setAppState("init");
     checkPermissions();
@@ -74,7 +91,8 @@ const useApp = () => {
     requestReadSMSPermission,
     smsPermissionState,
     successCallbackStatus,
-    smsValue,
+    smsMessageBody,
+    smsMessageNumber,
     smsError,
   };
 };

@@ -59,7 +59,8 @@ export default function App() {
     requestReadSMSPermission,
     smsPermissionState,
     successCallbackStatus,
-    smsValue,
+    smsMessageBody,
+    smsMessageNumber,
     smsError,
   } = useApp();
 
@@ -90,9 +91,15 @@ export default function App() {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell>
-              <Text>smsValue:</Text>
+              <Text>smsMessageNumber:</Text>
             </DataTable.Cell>
-            <DataTable.Cell>{smsValue + "" || "null"}</DataTable.Cell>
+            <DataTable.Cell>{smsMessageNumber + "" || "null"}</DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row>
+            <DataTable.Cell>
+              <Text>smsMessageBody:</Text>
+            </DataTable.Cell>
+            <DataTable.Cell>{smsMessageBody + "" || "null"}</DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell>
