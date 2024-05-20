@@ -15,7 +15,7 @@
 Read about the library in detail [here](https://github.com/maniac-tech/react-native-expo-read-sms)
 
 ## Support
-Tested on Expo SDK v44 & v45, and Node JS v14
+Tested on Expo SDK v44, v45, & v47 and Node JS v14
 
 ## License
 MIT
