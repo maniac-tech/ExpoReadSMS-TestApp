@@ -10,17 +10,17 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@maniac-tech/react-native-expo-read-sms": "4.0.0",
+    "@maniac-tech/react-native-expo-read-sms": "5.0.0",
     "eas-cli": "^5.0.0",
     "expo": "^49.0.23",
-    "expo-dev-client": "~2.2.1",
-    "expo-status-bar": "~1.4.0",
-    "expo-updates": "~0.16.4",
+    "expo-dev-client": "~2.4.13",
+    "expo-status-bar": "~1.6.0",
+    "expo-updates": "~0.18.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.14",
+    "react-native": "0.72.10",
     "react-native-paper": "^4.12.2",
-    "react-native-web": "~0.18.10"
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
