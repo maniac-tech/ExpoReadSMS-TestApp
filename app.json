@@ -12,6 +12,7 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
+      "enabled": true,
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/645044d2-03a2-47c7-be5f-d5ff0f228cb7"
     },
@@ -32,6 +33,20 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "plugins": [
+      "expo-updates",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 33,
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0"
+          }
+        }
+      ]
+    ],
     "runtimeVersion": {
       "policy": "sdkVersion"
     },
