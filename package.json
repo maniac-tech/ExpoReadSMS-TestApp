@@ -10,18 +10,18 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@maniac-tech/react-native-expo-read-sms": "5.1.0",
-    "expo": "^49.0.23",
-    "expo-dev-client": "~2.4.13",
-    "expo-status-bar": "~1.6.0",
-    "expo-updates": "~0.18.19",
+    "@maniac-tech/react-native-expo-read-sms": "6.1.0",
+    "expo": "^50.0.19",
+    "expo-build-properties": "~0.11.1",
+    "expo-dev-client": "~3.3.12",
+    "expo-splash-screen": "~0.26.5",
+    "expo-status-bar": "~1.11.1",
+    "expo-updates": "~0.24.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.10",
+    "react-native": "0.73.6",
     "react-native-paper": "^4.12.2",
-    "react-native-web": "~0.19.6",
-    "expo-splash-screen": "~0.20.5",
-    "expo-build-properties": "~0.8.3"
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
