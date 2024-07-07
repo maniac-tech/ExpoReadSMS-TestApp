@@ -10,7 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@maniac-tech/react-native-expo-read-sms": "6.1.0",
+    "@maniac-tech/react-native-expo-read-sms": "7.0.0",
     "expo": "^51.0.0",
     "expo-build-properties": "~0.12.3",
     "expo-dev-client": "~4.0.19",
