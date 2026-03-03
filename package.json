@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@maniac-tech/react-native-expo-read-sms": "^9.1.1",
-    "expo": "~51.0.0",
+    "expo": "^51.0.0",
+    "expo-dev-client": "~4.0.19",
+    "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-native": "0.74.5",
