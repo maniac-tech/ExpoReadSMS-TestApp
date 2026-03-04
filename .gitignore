@@ -13,3 +13,9 @@ web-build/
 
 # macOS
 .DS_Store
+
+# Android
+android/
+
+# iOS
+ios/
