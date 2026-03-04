@@ -1,21 +1,44 @@
-# ExpoReadSMS-TestApp / [Webpage](http://maniac-tech.com/expo-read-sms/)
+# ExpoReadSMS-TestApp — SDK 51 Branch
 
-## Maintainers
+Verification branch for `@maniac-tech/react-native-expo-read-sms` on **Expo SDK 51**.
 
-[maniac-tech](https://github.com/maniac-tech/) Active maintainer
+| Property | Value |
+|----------|-------|
+| Expo SDK | ~51.0.0 |
+| React Native | 0.74.5 |
+| Library version | ^9.1.0 |
+| New Architecture | Optional (off by default for existing projects) |
+| Android targetSdk | 34 |
 
-## Usage
-1. Clone the app
-2. npm install
-3. npm run start
-4. Scan the barcode
+## Setup
 
-## For more details
+```bash
+git checkout sdk-51
+npm install
+npx expo prebuild --platform android --clean
+npx expo run:android
+```
 
-Read about the library in detail [here](https://github.com/maniac-tech/react-native-expo-read-sms)
+> **Note:** This library requires a **development build** — it cannot run in Expo Go because it uses a custom native Android module.
 
-## Support
-Tested on Expo SDK v44, v45, v47, v48 v49 and Node JS v18
+## Verification Checklist
 
-## License
-MIT
+Test each method and mark as pass/fail before updating the support matrix.
+
+- [ ] App builds without errors (`npx expo prebuild` succeeds)
+- [ ] App launches on device/emulator
+- [ ] `checkIfHasSMSPermission()` — returns correct `{ hasReadSmsPermission, hasReceiveSmsPermission }` object
+- [ ] `requestReadSMSPermission()` — system permission dialog appears; returns `true` when granted
+- [ ] `startReadSMS(callback)` — starts without error; `status === "success"` in callback
+- [ ] Incoming SMS received — callback fires with correct `[phoneNumber, messageBody]` format
+- [ ] `stopReadSMS()` — stops listener; no further callbacks fired after stopping
+- [ ] No `NativeEventEmitter` warnings in console
+
+## Result
+
+<!-- Fill in after testing -->
+**Status:** ⬜ Pending  
+**Tested by:**  
+**Test date:**  
+**Device/Emulator:**  
+**Notes:**  
