@@ -16,3 +16,6 @@ web-build/
 
 # Android
 android/
+
+# iOS
+ios/
